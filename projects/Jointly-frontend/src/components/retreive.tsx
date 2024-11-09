@@ -4,13 +4,13 @@ import AlgorandClient from '@algorandfoundation/algokit-utils/types/algorand-cli
 import { useWallet } from '@txnlab/use-wallet'
 import algosdk, { decodeUint64, encodeAddress, encodeUint64 } from 'algosdk'
 import React, { useEffect, useState } from 'react'
-import ConnectWallet from './components/ConnectWallet'
-import MethodCall from './components/MethodCall'
-import { DaoAccountClient } from './contracts/DaoAccount'
-import * as methods from './methods'
-import { getAlgodConfigFromViteEnvironment } from './utils/network/getAlgoClientConfigs'
-import { TextAnimate } from './components/TextAnimate'
-import AnimatedWalletButton from './components/ScaleBtn'
+import ConnectWallet from './ConnectWallet'
+import MethodCall from './MethodCall'
+import { JointlyClient } from '../contracts/Jointly'
+import * as methods from '../methods'
+import { getAlgodConfigFromViteEnvironment } from '../utils/network/getAlgoClientConfigs'
+import { TextAnimate } from './TextAnimate'
+import AnimatedWalletButton from './ScaleBtn'
 
 interface HomeProps {}
 
@@ -62,7 +62,7 @@ const Home: React.FC<HomeProps> = () => {
   const algorand = AlgorandClient.fromConfig({ algodConfig })
   algorand.setDefaultSigner(signer)
 
-  const dmClient = new DaoAccountClient(
+  const dmClient = new JointlyClient(
     {
       resolveBy: 'id',
       id: appId,

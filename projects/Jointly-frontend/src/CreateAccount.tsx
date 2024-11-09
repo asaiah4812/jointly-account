@@ -130,15 +130,18 @@ export default function CreateAccount() {
             </div>
             <div className="hidden lg:flex items-center">
               {/* {activeTab === 'connect' && activeAddress && ( */}
+              {activeAddress && (
               <div className='flex space-x-4 mr-3'>
               <div className='text-white'>
-                Bal: <span>{activeAddress ? activeAddress.bal : '0.00'}</span>
+                Bal: <span>0.00</span>
               </div>
               <div className='text-white'>
-                ASA: <span>{activeAddress ? activeAddress.asa : '0.00'}</span>
+                ASA: <span>0.00</span>
               </div>
               </div>
 
+              )
+            }
               {/* )} */}
               <button
                 data-test-id="connect-wallet"
